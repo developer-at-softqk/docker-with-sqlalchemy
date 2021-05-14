@@ -13,4 +13,4 @@ flask db migrate
 flask db upgrade
 
 cd /Photos-Docker-Flask
-python run.py
+python run.py --host=0.0.0.0

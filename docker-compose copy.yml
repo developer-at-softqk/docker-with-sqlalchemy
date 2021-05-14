@@ -1,12 +1,16 @@
 version: '3'
 
 services:
-
-  website:
+  base:
     build: .
     env_file:
       - '.env'
+
+  website:
+    extends: 
+      service: base
     container_name: softqk-web
+    command: python run.py --host=0.0.0.0
     ports:
       - '8000:5000'
     depends_on:
@@ -35,6 +39,14 @@ services:
       MYSQL_USER: insta_admin
       MYSQL_PASSWORD: insta2018
       MYSQL_DATABASE: insta_db
+  
+  migrations:
+    extends: 
+      service: base
+    container_name: softqk-migration  
+    command: flask db migrate && flask db upgrade
+    depends_on: 
+      - db
 
 volumes: 
   test_volume:      

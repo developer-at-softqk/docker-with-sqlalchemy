@@ -9,7 +9,8 @@ RUN apt update && \
     apt install -y netcat-openbsd
 
 # set the env variable to tell where the app will be installed inside the docker
-
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 ENV INSTALL_PATH /Photos-Docker-Flask
 RUN mkdir -p $INSTALL_PATH
 
