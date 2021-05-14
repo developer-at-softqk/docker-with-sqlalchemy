@@ -1,10 +1,7 @@
 # specify the image you want to use build docker image
 
-FROM python:2.7
+FROM python:3.8
 
-# Maintainer name to let people know who made this image.
-
-MAINTAINER Kartik <kartik@gmail.com>
 
 #apt is the ubuntu command line tool for advanced packaging tool(APT) for sw upgrade '''
 
